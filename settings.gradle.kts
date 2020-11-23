@@ -13,11 +13,9 @@ pluginManagement {
         }
     }
 }
+
+plugins {
+    id("com.pablisco.gradle.automodule") version "0.15"
+}
+
 rootProject.name = "Astronopic"
-
-
-include(":androidApp")
-include(":core")
-include(":data:remote:model")
-include(":data:remote:service")
-

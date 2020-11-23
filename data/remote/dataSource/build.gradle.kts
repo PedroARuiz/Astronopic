@@ -12,21 +12,24 @@ repositories {
     google()
     jcenter()
     mavenCentral()
+    maven(url = "https://kotlin.bintray.com/kotlinx/")
 }
 kotlin {
     jvm()
     ios {
         binaries {
             framework {
-                baseName = "remoteModel"
+                baseName = "remoteDataSource"
             }
         }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(project(autoModules.data.remote.model))
+                implementation(project(autoModules.data.remote.service))
                 Dependency.apply {
-                    implementation(serialization)
+                    implementation(dateTime)
                 }
             }
         }

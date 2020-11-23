@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("kotlin-android-extensions")
 }
 group = "org.edrodev.astronopic"
 version = "1.0-SNAPSHOT"
@@ -11,6 +10,7 @@ repositories {
     google()
     jcenter()
     mavenCentral()
+    maven(url = "https://kotlin.bintray.com/kotlinx/")
 }
 dependencies {
     implementation(project(":core"))
@@ -20,6 +20,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation(Dependency.coroutinesCore)
+    implementation(Dependency.dateTime)
 }
 android {
     compileSdkVersion(30)

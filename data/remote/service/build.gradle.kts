@@ -12,6 +12,7 @@ repositories {
     google()
     jcenter()
     mavenCentral()
+    maven(url = "https://kotlin.bintray.com/kotlinx/")
 }
 kotlin {
     jvm()
@@ -25,14 +26,13 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":data:remote:model"))
+                implementation(project(autoModules.data.remote.model))
                 Dependency.apply {
+                    implementation(dateTime)
                     implementation(ktorClient)
-                    implementation("io.ktor:ktor-client-json:${Version.ktor}")
-                    //implementation(coroutinesCore)
+                    implementation(ktorClientSerialization)
+                    implementation(ktorClientJson)
                     implementation(serialization)
-                    implementation("io.ktor:ktor-client-serialization:${Version.ktor}")
-
                 }
             }
         }
@@ -45,7 +45,9 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-okhttp:${Version.ktor}")
+                DependencyJVM.apply {
+                    implementation(ktorClient)
+                }
             }
         }
     }

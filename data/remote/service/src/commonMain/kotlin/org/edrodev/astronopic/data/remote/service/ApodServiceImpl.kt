@@ -8,6 +8,7 @@ import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.http.URLProtocol
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.json.Json
 import org.edrodev.astronopic.data.remote.model.ApodDTO
 
@@ -29,9 +30,9 @@ class ApodServiceImpl : ApodService {
         }
     }
 
-    override suspend fun getApod(): ApodDTO =
+    override suspend fun getApod(date: LocalDate): ApodDTO =
         client.get {
-            parameter("date", "2020-11-22")
+            parameter("date", date.toString())
             url { encodedPath = "/planetary/apod" }
         }
 
