@@ -12,10 +12,10 @@
 /.idea/compiler.xml
 /.idea/artifacts
 .DS_Store
-*/build/
 /captures
 .externalNativeBuild
 .cxx
 local.properties
 ios.xcworkspace/
 out
+build
