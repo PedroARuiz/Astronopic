@@ -9,15 +9,17 @@ import org.edrodev.astronopic.R
 import org.edrodev.astronopic.data.remote.dataSource.ApodRemoteDataSourceImpl
 import org.edrodev.astronopic.data.remote.service.ApodServiceImpl
 import org.edrodev.astronopic.data.repositoryImpl.ApodRepositoryImpl
-import org.edrodev.astronopic.domain.repository.ApodRepository
+import org.edrodev.astronopic.domain.useCase.GetApod
 
 class MainActivity : AppCompatActivity() {
 
-    private val repo: ApodRepository by lazy {
-        ApodRepositoryImpl(
-            apodRemoteDataSource = ApodRemoteDataSourceImpl(
-                apodService = ApodServiceImpl()
-            ),
+    private val useCase: GetApod by lazy {
+        GetApod(
+            apodRepository = ApodRepositoryImpl(
+                apodRemoteDataSource = ApodRemoteDataSourceImpl(
+                    apodService = ApodServiceImpl()
+                ),
+            )
         )
     }
 
@@ -26,6 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val tv: TextView = findViewById(R.id.text_view)
-        tv.text = runBlocking { repo.getApod(LocalDate(2020, 11, 22)).toString() }
+        tv.text = runBlocking { useCase.getApod(LocalDate(2020, 11, 24)).toString() }
     }
 }

@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version "1.4.0"
 }
 group = "org.edrodev.astronopic"
 version = "1.0-SNAPSHOT"
@@ -12,21 +11,23 @@ repositories {
     google()
     jcenter()
     mavenCentral()
+    maven(url = "https://kotlin.bintray.com/kotlinx/")
 }
 kotlin {
     jvm()
     ios {
         binaries {
             framework {
-                baseName = "dto"
+                baseName = "domainRepository"
             }
         }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(project(autoModules.domain.model))
                 Dependency.apply {
-                    implementation(serialization)
+                    implementation(dateTime)
                 }
             }
         }

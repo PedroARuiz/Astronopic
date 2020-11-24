@@ -15,6 +15,10 @@ repositories {
 dependencies {
     autoModules.apply {
         implementation(project(core))
+        implementation(project(domain.useCase))
+        implementation(project(domain.repository))
+        implementation(project(data.remote.dataSource))
+        implementation(project(data.remote.service))
         implementation(project(data.repositoryImpl))
     }
     implementation("com.google.android.material:material:1.2.0")

@@ -1,4 +1,4 @@
-package org.edrodev.astronopic.data.remote.model
+package org.edrodev.astronopic.data.remote.dto
 
 import kotlinx.serialization.Serializable
 
