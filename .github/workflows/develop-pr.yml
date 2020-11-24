@@ -1,10 +1,14 @@
 name: Develop PR
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+  push:
     branches:
       - develop
+#  Currently there is no PR, so runs when push to develop
+#  pull_request:
+#    types: [opened, synchronize, reopened, ready_for_review]
+#    branches:
+#      - develop
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
