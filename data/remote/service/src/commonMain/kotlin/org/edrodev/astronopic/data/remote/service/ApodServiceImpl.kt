@@ -10,7 +10,7 @@ import io.ktor.client.request.parameter
 import io.ktor.http.URLProtocol
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.json.Json
-import org.edrodev.astronopic.data.remote.model.ApodDTO
+import org.edrodev.astronopic.data.remote.dto.ApodDTO
 
 class ApodServiceImpl : ApodService {
     private val apiKey = "btLsqqfnKwLMbn3qIZjg1JN51AIGgzDxPk4CPKgS"

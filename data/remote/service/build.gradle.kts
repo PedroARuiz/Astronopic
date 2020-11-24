@@ -26,7 +26,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(autoModules.data.remote.model))
+                implementation(project(autoModules.data.remote.dto))
                 Dependency.apply {
                     implementation(dateTime)
                     implementation(ktorClient)

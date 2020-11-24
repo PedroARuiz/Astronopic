@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version "1.4.0"
 }
 group = "org.edrodev.astronopic"
 version = "1.0-SNAPSHOT"
@@ -19,18 +18,19 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = "remoteDataSource"
+                baseName = "remoteRepository"
             }
         }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(project(autoModules.domain.model))
+                implementation(project(autoModules.domain.repository))
                 implementation(project(autoModules.data.remote.dto))
-                implementation(project(autoModules.data.remote.service))
+                implementation(project(autoModules.data.remote.dataSource))
                 Dependency.apply {
                     implementation(dateTime)
-                    implementation(serialization)
                 }
             }
         }

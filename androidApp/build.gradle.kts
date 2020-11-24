@@ -13,9 +13,10 @@ repositories {
     maven(url = "https://kotlin.bintray.com/kotlinx/")
 }
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":data:remote:model"))
-    implementation(project(":data:remote:service"))
+    autoModules.apply {
+        implementation(project(core))
+        implementation(project(data.repositoryImpl))
+    }
     implementation("com.google.android.material:material:1.2.0")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")

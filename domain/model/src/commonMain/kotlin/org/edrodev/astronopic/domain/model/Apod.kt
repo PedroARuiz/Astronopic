@@ -1,13 +1,12 @@
 package org.edrodev.astronopic.domain.model
 
-import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalDate
 
 data class Apod(
     val copyright: String? = null,
-    val date: LocalDateTime,
+    val date: LocalDate,
     val explanation: String,
     val hdurl: String,
-    val mediaType: String? = null,
     val title: String,
     val url: String
 )
