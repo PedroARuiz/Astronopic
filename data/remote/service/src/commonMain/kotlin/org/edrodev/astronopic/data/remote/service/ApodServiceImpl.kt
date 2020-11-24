@@ -10,6 +10,10 @@ import io.ktor.client.request.parameter
 import io.ktor.http.URLProtocol
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.json.Json
+import org.edrodev.astronopic.core.Failure
+import org.edrodev.astronopic.core.Result
+import org.edrodev.astronopic.core.asFailure
+import org.edrodev.astronopic.core.asSuccess
 import org.edrodev.astronopic.data.remote.dto.ApodDTO
 
 class ApodServiceImpl : ApodService {
@@ -30,21 +34,14 @@ class ApodServiceImpl : ApodService {
         }
     }
 
-    override suspend fun getApod(date: LocalDate): ApodDTO =
-        client.get {
+    override suspend fun getApod(date: LocalDate): Result<Failure, ApodDTO> = try {
+        client.get<ApodDTO> {
             parameter("date", date.toString())
             url { encodedPath = "/planetary/apod" }
-        }
-
-    /*override suspend fun getConsortia(): List<ConsortiaDTO> =
-        client.get<GetConsortiaResponse> {
-            url { encodedPath = "/Consorcios/consorcios" }
-        }.consorcios
-
-    override suspend fun getConsortium(consortiumId: Int): ConsortiumDTO =
-        client.get {
-            url { encodedPath = "/Consorcios/$consortiumId/consorcios/consorcio" }
-        }*/
+        }.asSuccess()
+    } catch (e: Exception) {
+        Failure().asFailure()
+    }
 
 }
 

@@ -25,6 +25,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                api(project(autoModules.core))
                 api(project(autoModules.domain.model))
                 implementation(project(autoModules.domain.repository))
                 Dependency.apply {

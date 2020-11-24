@@ -26,6 +26,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(project(autoModules.core))
                 implementation(project(autoModules.data.remote.dto))
                 implementation(project(autoModules.data.remote.service))
                 Dependency.apply {

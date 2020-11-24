@@ -2,6 +2,7 @@ package org.edrodev.astronopic.androidApp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import kotlinx.coroutines.runBlocking
 import kotlinx.datetime.LocalDate
@@ -27,7 +28,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val root: View = findViewById(R.id.main_view)
         val tv: TextView = findViewById(R.id.text_view)
         tv.text = runBlocking { useCase.getApod(LocalDate(2020, 11, 24)).toString() }
+
+        root.setOnClickListener {
+            tv.text = runBlocking { useCase.getApod(LocalDate(2020, 11, 24)).toString() }
+        }
     }
 }
