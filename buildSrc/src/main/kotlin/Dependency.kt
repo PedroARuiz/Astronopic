@@ -7,8 +7,13 @@ object Dependency {
     const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.serialization}"
 }
 
+object DependencyTest {
+    const val mockk = "io.mockk:mockk-common:${Version.mockk}"
+}
+
 object DependencyJVM {
     const val ktorClient = "io.ktor:ktor-client-okhttp:${Version.ktor}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutines}"
 }
 
 object DependencyIOS {

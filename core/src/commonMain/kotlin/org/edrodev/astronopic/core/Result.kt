@@ -17,3 +17,11 @@ fun <F, S, F2>Result<F, S>.mapFailure(map: (F) -> F2) : Result<F2, S> = when(thi
     is Result.Success<S> -> data.asSuccess()
     is Result.Failure<F> -> map(error).asFailure()
 }
+
+fun <F, S>Result<F, S>.successOrThrow(): S = if(this is Result.Success<S>) {
+    data
+} else throw IllegalStateException("data is null")
+
+fun <F, S>Result<F, S>.failureOrThrow(): F = if (this is Result.Failure<F>){
+    error
+} else throw IllegalStateException("error is null")

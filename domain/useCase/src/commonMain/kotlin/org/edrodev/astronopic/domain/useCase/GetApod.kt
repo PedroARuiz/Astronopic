@@ -9,6 +9,6 @@ import org.edrodev.astronopic.domain.repository.ApodRepository
 class GetApod(
     private val apodRepository: ApodRepository
 ) {
-    suspend fun getApod(date: LocalDate): Result<Failure, Apod> =
+    suspend operator fun invoke(date: LocalDate): Result<Failure, Apod> =
         apodRepository.getApod(date)
 }

@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         val root: View = findViewById(R.id.main_view)
         val tv: TextView = findViewById(R.id.text_view)
-        tv.text = runBlocking { useCase.getApod(LocalDate(2020, 11, 24)).toString() }
+        tv.text = runBlocking { useCase(LocalDate(2020, 11, 24)).toString() }
 
         root.setOnClickListener {
-            tv.text = runBlocking { useCase.getApod(LocalDate(2020, 11, 24)).toString() }
+            tv.text = runBlocking { useCase(LocalDate(2020, 11, 24)).toString() }
         }
     }
 }
