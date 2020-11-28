@@ -8,12 +8,18 @@ object Dependency {
 }
 
 object DependencyTest {
+    const val kotestAssertions = "io.kotest:kotest-assertions-core:${Version.kotest}"
     const val mockk = "io.mockk:mockk-common:${Version.mockk}"
 }
 
 object DependencyJVM {
     const val ktorClient = "io.ktor:ktor-client-okhttp:${Version.ktor}"
+}
+
+object DependencyTestJVM {
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.coroutines}"
+    const val jUnit = "junit:junit:${Version.jUnit}"
+    const val mockk = "io.mockk:mockk:${Version.mockk}"
 }
 
 object DependencyIOS {
