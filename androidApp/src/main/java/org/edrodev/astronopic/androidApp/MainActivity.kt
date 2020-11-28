@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import kotlinx.coroutines.runBlocking
-import kotlinx.datetime.LocalDate
 import org.edrodev.astronopic.R
+import org.edrodev.astronopic.core.datetime.today
 import org.edrodev.astronopic.data.remote.dataSource.ApodRemoteDataSourceImpl
 import org.edrodev.astronopic.data.remote.service.ApodServiceImpl
 import org.edrodev.astronopic.data.repositoryImpl.ApodRepositoryImpl
@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         val root: View = findViewById(R.id.main_view)
         val tv: TextView = findViewById(R.id.text_view)
-        tv.text = runBlocking { useCase(LocalDate(2020, 11, 24)).toString() }
+        tv.text = runBlocking { useCase(today()).toString() }
 
         root.setOnClickListener {
-            tv.text = runBlocking { useCase(LocalDate(2020, 11, 24)).toString() }
+            tv.text = runBlocking { useCase(today()).toString() }
         }
     }
 }
