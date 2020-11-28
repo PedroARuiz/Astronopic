@@ -1,25 +1,30 @@
 package org.edrodev.astronopic.androidApp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
-import kotlinx.coroutines.runBlocking
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collect
 import org.edrodev.astronopic.R
-import org.edrodev.astronopic.core.datetime.today
 import org.edrodev.astronopic.data.remote.dataSource.ApodRemoteDataSourceImpl
 import org.edrodev.astronopic.data.remote.service.ApodServiceImpl
 import org.edrodev.astronopic.data.repositoryImpl.ApodRepositoryImpl
 import org.edrodev.astronopic.domain.useCase.GetApod
+import org.edrodev.astronopic.presentation.apod.ApodViewModel
+import org.edrodev.astronopic.presentation.core.Resource
 
 class MainActivity : AppCompatActivity() {
 
-    private val useCase: GetApod by lazy {
-        GetApod(
-            apodRepository = ApodRepositoryImpl(
-                apodRemoteDataSource = ApodRemoteDataSourceImpl(
-                    apodService = ApodServiceImpl()
-                ),
+    private val viewModel: ApodViewModel by lazy {
+        ApodViewModel(
+            getApod = GetApod(
+                apodRepository = ApodRepositoryImpl(
+                    apodRemoteDataSource = ApodRemoteDataSourceImpl(
+                        apodService = ApodServiceImpl()
+                    ),
+                )
             )
         )
     }
@@ -30,10 +35,21 @@ class MainActivity : AppCompatActivity() {
 
         val root: View = findViewById(R.id.main_view)
         val tv: TextView = findViewById(R.id.text_view)
-        tv.text = runBlocking { useCase(today()).toString() }
+        val progressBar: ProgressBar = findViewById(R.id.progressBar)
 
-        root.setOnClickListener {
-            tv.text = runBlocking { useCase(today()).toString() }
+        lifecycleScope.launchWhenStarted {
+            viewModel.apod.collect {
+                when(it) {
+                    is Resource.Loading -> {
+                        tv.text = null
+                        progressBar.visibility = View.VISIBLE
+                    }
+                    is Resource.Result -> {
+                        progressBar.visibility = View.GONE
+                        tv.text = it.toString()
+                    }
+                }
+            }
         }
     }
 }

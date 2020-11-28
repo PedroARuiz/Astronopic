@@ -6,7 +6,7 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = "domainModel"
+                baseName = "model"
             }
         }
     }

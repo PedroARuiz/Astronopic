@@ -20,12 +20,14 @@ dependencies {
         implementation(project(data.remote.dataSource))
         implementation(project(data.remote.service))
         implementation(project(data.repositoryImpl))
+        implementation(project(presentation.apod))
     }
     implementation("com.google.android.material:material:1.2.0")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation(Dependency.coroutinesCore)
     implementation(Dependency.dateTime)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
 }
 android {
     compileSdkVersion(30)
