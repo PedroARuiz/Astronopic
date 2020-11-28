@@ -1,3 +1,8 @@
 package org.edrodev.astronopic.presentation.core
 
-open class ViewModel
+import kotlinx.coroutines.CoroutineScope
+
+open class ViewModel {
+
+
+}

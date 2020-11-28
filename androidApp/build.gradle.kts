@@ -15,6 +15,7 @@ repositories {
 dependencies {
     autoModules.apply {
         implementation(project(core))
+        implementation(project(domain.model))
         implementation(project(domain.useCase))
         implementation(project(domain.repository))
         implementation(project(data.remote.dataSource))
@@ -28,6 +29,8 @@ dependencies {
     implementation(Dependency.coroutinesCore)
     implementation(Dependency.dateTime)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("io.coil-kt:coil:1.1.0")
 }
 android {
     compileSdkVersion(30)
@@ -42,5 +45,12 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
