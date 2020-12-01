@@ -13,22 +13,6 @@ repositories {
     maven(url = "https://kotlin.bintray.com/kotlinx/")
     maven(url = "https://dl.bintray.com/ekito/koin")
 }
-dependencies {
-    autoModules.apply {
-        implementation(project(di))
-        implementation(project(core))
-        implementation(project(presentation.common))
-        implementation(project(presentation.apod))
-    }
-    implementation("com.google.android.material:material:1.2.1")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-    //implementation(Dependency.coroutinesCore)
-    implementation("org.koin:koin-androidx-viewmodel:${Version.koin}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("io.coil-kt:coil:1.1.0")
-}
 android {
     compileSdkVersion(30)
     defaultConfig {
@@ -49,5 +33,34 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        useIR = true
     }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.compose
+        kotlinCompilerVersion = "1.4.10"
+    }
+}
+
+dependencies {
+    autoModules.apply {
+        implementation(project(di))
+        implementation(project(core))
+        implementation(project(presentation.common))
+        implementation(project(presentation.apod))
+    }
+    implementation("com.google.android.material:material:1.2.1")
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation("androidx.compose.ui:ui:${Version.compose}")
+    implementation("androidx.compose.material:material:${Version.compose}")
+    implementation("androidx.ui:ui-tooling:${Version.compose}")
+    implementation("org.koin:koin-androidx-viewmodel:${Version.koin}")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("io.coil-kt:coil:1.1.0")
 }

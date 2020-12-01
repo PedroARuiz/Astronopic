@@ -1,4 +1,5 @@
 object Version {
+    const val compose = "1.0.0-alpha05"
     const val coroutines = "1.4.2"
     const val dateTime = "0.1.1"
     const val jUnit = "4.13.1"

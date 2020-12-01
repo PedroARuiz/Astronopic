@@ -8,8 +8,12 @@
         android:name=".androidApp.ApodApplication"
         android:allowBackup="false"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".androidApp.MainActivity">
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Apod">
+        <activity
+            android:name=".androidApp.MainActivity"
+            android:theme="@style/Theme.Apod.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
