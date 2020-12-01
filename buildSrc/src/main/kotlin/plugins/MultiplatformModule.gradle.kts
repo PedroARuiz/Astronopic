@@ -40,6 +40,14 @@ kotlin {
             }
         }
 
+        val jvmMain by getting {
+            dependencies {
+                Dependency.apply {
+                    api(coroutinesCore)
+                }
+            }
+        }
+
         val jvmTest by getting {
             dependencies {
                 DependencyTestJVM.apply {

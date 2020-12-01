@@ -1,6 +1,7 @@
 object Dependency {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutines}"
     const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Version.dateTime}"
+    const val koinCore = "org.koin:koin-core:${Version.koin}"
     const val ktorClient = "io.ktor:ktor-client-core:${Version.ktor}"
     const val ktorClientJson = "io.ktor:ktor-client-json:${Version.ktor}"
     const val ktorClientSerialization = "io.ktor:ktor-client-serialization:${Version.ktor}"

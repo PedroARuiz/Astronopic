@@ -15,10 +15,17 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(autoModules.core))
+                api(project(autoModules.domain.model))
                 api(project(autoModules.presentation.common))
                 implementation(project(autoModules.domain.useCase))
-                implementation(Dependency.coroutinesCore)
+                //implementation(Dependency.coroutinesCore)
             }
         }
+
+        /*val jvmMain by getting {
+            dependencies {
+                api(Dependency.coroutinesCore)
+            }
+        }*/
     }
 }

@@ -16,7 +16,6 @@ import org.edrodev.astronopic.presentation.core.Resource
 import org.edrodev.astronopic.presentation.core.ViewModel
 import org.edrodev.astronopic.presentation.core.toResource
 
-@ExperimentalCoroutinesApi
 class ApodViewModel(
     private val getApod: GetApod
 ) : ViewModel() {
