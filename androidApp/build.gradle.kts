@@ -42,7 +42,7 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = Version.compose
-        kotlinCompilerVersion = "1.4.10"
+        kotlinCompilerVersion = "1.4.20"
     }
 }
 
@@ -58,9 +58,10 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.compose.ui:ui:${Version.compose}")
     implementation("androidx.compose.material:material:${Version.compose}")
-    implementation("androidx.ui:ui-tooling:${Version.compose}")
+    implementation("androidx.compose.ui:ui-tooling:${Version.compose}")
     implementation("org.koin:koin-androidx-viewmodel:${Version.koin}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("io.coil-kt:coil:1.1.0")
+    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.4.0")
 }

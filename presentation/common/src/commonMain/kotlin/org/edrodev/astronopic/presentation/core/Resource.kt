@@ -13,8 +13,15 @@ val <F, S>Resource<F, S>.isSuccess: Boolean get() = this is Resource.Success
 val <F, S>Resource<F, S>.isFailure: Boolean get() = this is Resource.Failure
 val <F, S>Resource<F, S>.isLoading: Boolean get() = this is Resource.Loading
 
-/*
-fun <F, S>resourceFlow(block: suspend () -> CoreResult<F, S>): Flow<Resource<F, S>> = flow {
-    emit(Resource.Loading)
-    emit(Resource.Result(block))
-}*/
+fun <F, S>Resource<F, S>.successOrNull(): S? = (this as? Resource.Success)?.data
+
+inline fun <F, S>Resource<F, S>.fold(
+    onFailure: (F) -> Unit,
+    onLoading: () -> Unit,
+    onSuccess: (S) -> Unit,
+) = when(this) {
+    is Resource.Failure<F> -> onFailure(error)
+    is Resource.Success<S> -> onSuccess(data)
+    is Resource.Loading -> onLoading()
+}
+
