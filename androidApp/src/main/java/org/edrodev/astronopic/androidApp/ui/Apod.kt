@@ -12,7 +12,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.chrisbanes.accompanist.coil.CoilImage
 import kotlinx.datetime.LocalDate
-import org.edrodev.astronopic.androidApp.Loading
 import org.edrodev.astronopic.domain.model.Apod
 
 @Composable
@@ -37,18 +36,19 @@ fun Apod(apod: Apod) {
     }
 }
 
-@Preview(name = "Apod", showBackground = true)
+@Preview(name = "Apod")
 @Composable
 fun ApodPreview() {
     ApodTheme {
-        val apod = Apod(
-            copyright = null,
-            explanation = "Sample explanation",
-            date = LocalDate(2020, 12, 11),
-            hdurl = null,
-            title = "Sample title",
-            url = ""
-        )
-        Apod(apod)
+        Apod(apodFake)
     }
 }
+
+val apodFake = Apod(
+    copyright = null,
+    explanation = "Sample explanation",
+    date = LocalDate(2020, 12, 11),
+    hdurl = null,
+    title = "Sample title",
+    url = ""
+)
