@@ -14,6 +14,7 @@ object DependencyTest {
 }
 
 object DependencyJVM {
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutines}"
     const val ktorClient = "io.ktor:ktor-client-okhttp:${Version.ktor}"
 }
 
@@ -24,5 +25,6 @@ object DependencyTestJVM {
 }
 
 object DependencyIOS {
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Version.coroutines}"
     const val ktorClient = "io.ktor:ktor-client-ios:${Version.ktor}"
 }

@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+//import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
@@ -21,7 +21,7 @@ kotlin {
 
     sourceSets {
 
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 Dependency.apply {
                     implementation(coroutinesCore)
@@ -29,7 +29,7 @@ kotlin {
                 }
             }
         }
-        val commonTest by getting {
+        getByName("commonTest") {
             dependencies {
                 DependencyTest.apply {
                     implementation(kotestAssertions)
@@ -40,15 +40,23 @@ kotlin {
             }
         }
 
-        val jvmMain by getting {
+        getByName("jvmMain") {
             dependencies {
-                Dependency.apply {
-                    api(coroutinesCore)
+                DependencyJVM.apply {
+                    implementation(coroutinesCore)
                 }
             }
         }
 
-        val jvmTest by getting {
+        /*getByName("iosMain") {
+            dependencies {
+                DependencyIOS.apply {
+                    api(coroutinesCore)
+                }
+            }
+        }*/
+
+        getByName("jvmTest") {
             dependencies {
                 DependencyTestJVM.apply {
                     implementation(coroutinesTest)

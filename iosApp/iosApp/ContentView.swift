@@ -1,13 +1,10 @@
 import SwiftUI
 import core
 
-func greet() -> String {
-    return Greeting().greeting()
-}
-
 struct ContentView: View {
     var body: some View {
-        Text(greet())
+        PruebaKMP().mySuspend()
+        Text("\()")
     }
 }
 
