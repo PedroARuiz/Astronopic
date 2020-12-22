@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21")
-    implementation("com.android.tools.build:gradle:7.0.0-alpha02")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}")
+    implementation("com.android.tools.build:gradle:7.0.0-alpha03")
+    //implementation("com.squareup.sqldelight:gradle-plugin:${Version.sqDelight}")
 }

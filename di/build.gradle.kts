@@ -23,7 +23,9 @@ kotlin {
                     implementation(project(domain.useCase))
                     implementation(project(data.repositoryImpl))
                     implementation(project(data.remote.service))
-                    implementation(project(data.remote.dataSource))
+                    implementation(project(data.remote.remoteDataSource))
+                    implementation(project(data.local.db))
+                    implementation(project(data.local.localDataSource))
                     implementation(project(presentation.apod))
                 }
             }

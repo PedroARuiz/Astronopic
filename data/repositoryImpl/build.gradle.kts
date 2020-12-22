@@ -6,7 +6,7 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = "remoteRepository"
+                baseName = "repositoryImpl"
             }
         }
     }
@@ -17,7 +17,9 @@ kotlin {
                 implementation(project(autoModules.domain.model))
                 implementation(project(autoModules.domain.repository))
                 implementation(project(autoModules.data.remote.dto))
-                implementation(project(autoModules.data.remote.dataSource))
+                implementation(project(autoModules.data.remote.remoteDataSource))
+                implementation(project(autoModules.data.local.db))
+                implementation(project(autoModules.data.local.localDataSource))
             }
         }
     }

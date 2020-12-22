@@ -1,5 +1,9 @@
 package org.edrodev.astronopic.di
 
+import org.edrodev.astronopic.data.local.dataSource.ApodLocalDataSource
+import org.edrodev.astronopic.data.local.dataSource.ApodLocalDataSourceImpl
+import org.edrodev.astronopic.data.local.db.AstronopicDataBase
+import org.edrodev.astronopic.data.local.db.driver
 import org.edrodev.astronopic.data.remote.dataSource.ApodRemoteDataSource
 import org.edrodev.astronopic.data.remote.dataSource.ApodRemoteDataSourceImpl
 import org.edrodev.astronopic.data.remote.service.ApodService
@@ -21,7 +25,26 @@ val dataModule = module {
 
     single<ApodRepository> {
         ApodRepositoryImpl(
-            apodRemoteDataSource = get()
+            apodRemoteDataSource = get(),
+            apodLocalDataSource = get()
+        )
+    }
+
+    single {
+        driver
+    }
+
+    single {
+        AstronopicDataBase(get())
+    }
+
+    single {
+        get<AstronopicDataBase>().apodTableQueries
+    }
+
+    single<ApodLocalDataSource> {
+        ApodLocalDataSourceImpl(
+            apodTableQueries = get()
         )
     }
 }

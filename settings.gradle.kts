@@ -19,3 +19,4 @@ plugins {
 }
 
 rootProject.name = "Astronopic"
+include(":androidLibrary")
