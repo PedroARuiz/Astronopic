@@ -6,9 +6,9 @@ import org.koin.dsl.KoinAppDeclaration
 fun initDI(appDeclaration: KoinAppDeclaration = {}) = startKoin {
     appDeclaration()
     modules(
-        domainModule,
-        dataModule,
-        presentationModule
+        domainModules +
+        dataModules +
+        presentationModules
     )
 }
 

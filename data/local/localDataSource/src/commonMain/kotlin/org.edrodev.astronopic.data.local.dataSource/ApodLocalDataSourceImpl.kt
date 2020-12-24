@@ -8,7 +8,7 @@ import org.edrodev.astronopic.core.runCatchingFailure
 import orgedrodevastronopicdatalocaldb.ApodEntity
 import orgedrodevastronopicdatalocaldb.ApodTableQueries
 
-class ApodLocalDataSourceImpl(
+internal class ApodLocalDataSourceImpl(
     private val apodTableQueries: ApodTableQueries
 ) : ApodLocalDataSource {
 

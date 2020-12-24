@@ -1,3 +1,3 @@
 package org.edrodev.astronopic.presentation.core
 
-open class ViewModel
+expect open class ViewModel()

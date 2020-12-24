@@ -64,6 +64,6 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("io.coil-kt:coil:1.1.0")
     implementation("dev.chrisbanes.accompanist:accompanist-coil:0.4.0")
-    implementation(DependencyJVM.coroutinesCore)
+    implementation(DependencyAndroid.coroutinesCore)
     implementation(Dependency.dateTime)
 }

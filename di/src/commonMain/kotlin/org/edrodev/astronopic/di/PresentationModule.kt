@@ -1,12 +1,7 @@
 package org.edrodev.astronopic.di
 
-import org.edrodev.astronopic.presentation.apod.ApodViewModel
-import org.koin.dsl.module
+import org.edrodev.astronopic.presentation.apod.di.presentationApodModule
 
-val presentationModule = module {
-    factory {
-        ApodViewModel(
-            getApod = get()
-        )
-    }
-}
+val presentationModules = listOf(
+    presentationApodModule
+)

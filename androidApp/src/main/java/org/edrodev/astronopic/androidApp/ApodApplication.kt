@@ -1,7 +1,6 @@
 package org.edrodev.astronopic.androidApp
 
 import android.app.Application
-import org.edrodev.astronopic.di.androidDataModule
 import org.edrodev.astronopic.di.initDI
 import org.koin.android.ext.koin.androidContext
 
@@ -12,7 +11,6 @@ class ApodApplication : Application() {
 
         initDI {
             androidContext(applicationContext)
-            modules(androidDataModule)
         }
     }
 }

@@ -1,12 +1,9 @@
 package org.edrodev.astronopic.di
 
-import org.edrodev.astronopic.domain.useCase.GetApod
-import org.koin.dsl.module
+import org.edrodev.astronopic.data.repositoryImpl.di.repositoryModule
+import org.edrodev.astronopic.domain.useCase.di.useCaseModule
 
-val domainModule = module {
-    single {
-        GetApod(
-            apodRepository = get()
-        )
-    }
-}
+val domainModules = listOf(
+    repositoryModule,
+    useCaseModule
+)

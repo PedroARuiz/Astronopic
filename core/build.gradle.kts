@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
 }
 kotlin {
     ios {

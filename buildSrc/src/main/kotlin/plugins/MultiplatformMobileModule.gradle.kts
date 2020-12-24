@@ -11,6 +11,7 @@ repositories {
     jcenter()
     mavenCentral()
     maven(url = "https://kotlin.bintray.com/kotlinx/")
+    maven(url = "https://dl.bintray.com/ekito/koin")
 }
 
 group = "org.edrodev.astronopic"
@@ -45,6 +46,7 @@ kotlin {
                 Dependency.apply {
                     implementation(coroutinesCore)
                     implementation(dateTime)
+                    implementation(koinCore)
                 }
             }
         }
@@ -61,8 +63,9 @@ kotlin {
 
         getByName("androidMain") {
             dependencies {
-                DependencyJVM.apply {
+                DependencyAndroid.apply {
                     implementation(coroutinesCore)
+                    implementation(koinViewModel)
                 }
             }
         }
