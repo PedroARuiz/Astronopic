@@ -1,5 +1,5 @@
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
     kotlin("plugin.serialization") version "1.4.0"
 }
 
