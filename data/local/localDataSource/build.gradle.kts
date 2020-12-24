@@ -1,5 +1,5 @@
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
 }
 
 kotlin {
@@ -17,20 +17,6 @@ kotlin {
                 implementation(project(autoModules.data.local.db))
                 Dependency.apply {
                     //implementation(sqDelightCoroutines)
-                }
-            }
-        }
-
-        val jvmMain by getting {
-            dependencies {
-                DependencyJVM.apply {
-                }
-            }
-        }
-
-        val iosMain by getting {
-            dependencies {
-                DependencyIOS.apply {
                 }
             }
         }
