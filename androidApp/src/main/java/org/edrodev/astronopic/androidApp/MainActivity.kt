@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
                 MainScreen(
                     onPreviousClick = { viewModel.previous() },
                     onNextClick = { viewModel.next() },
-                    apodFlow = viewModel.apod
+                    dateFlow = viewModel.date,
+                    apodFlow = viewModel.apod,
                 )
             }
         }

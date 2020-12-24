@@ -31,6 +31,7 @@ object DependencyAndroid {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutines}"
     const val koin = "org.koin:koin-android:${Version.koin}"
     const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Version.koin}"
+    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
     const val sqDelightDriver = "com.squareup.sqldelight:android-driver:${Version.sqDelight}"
 }
 

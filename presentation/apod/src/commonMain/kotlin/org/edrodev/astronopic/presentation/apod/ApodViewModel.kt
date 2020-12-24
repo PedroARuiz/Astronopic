@@ -1,9 +1,14 @@
 package org.edrodev.astronopic.presentation.apod
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.plus
@@ -19,27 +24,27 @@ class ApodViewModel(
     private val getApod: GetApod
 ) : ViewModel() {
 
-    private val date: MutableStateFlow<LocalDate> = MutableStateFlow(today())
+    private val _date: MutableStateFlow<LocalDate> by lazy { MutableStateFlow(today()) }
+    val date: StateFlow<LocalDate> by lazy { _date }
 
-    val apod: Flow<Resource<Failure, Apod>> = date.flatMapLatest { flow {
-        emit(Resource.Loading)
-
-        emit(getApod(it).toResource())
-    } }
+    val apod: Flow<Resource<Failure, Apod>> = date.flatMapConcat{ flowOf(
+        Resource.Loading,
+        getApod(it).toResource()
+    ) }
 
     fun refresh() {
         date.value.also {  currentValue ->
-            date.value = LocalDate(0, 1, 1)
-            date.value = currentValue
+            _date.value = LocalDate(0, 1, 1)
+            _date.value = currentValue
         }
     }
 
     fun next() {
-        date.value = date.value.plus(DatePeriod(days = 1))
+        _date.value = date.value.plus(DatePeriod(days = 1))
     }
 
     fun previous() {
-        date.value = date.value.plus(DatePeriod(days = -1))
+        _date.value = date.value.plus(DatePeriod(days = -1))
     }
 
 }

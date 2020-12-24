@@ -1,3 +1,7 @@
 package org.edrodev.astronopic.presentation.core
 
-expect open class ViewModel()
+import kotlinx.coroutines.CoroutineScope
+
+expect open class ViewModel() {
+    protected val vmScope: CoroutineScope
+}

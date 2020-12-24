@@ -7,6 +7,7 @@ object Version {
     const val ktor = "1.4.3"
     const val kotest = "4.3.1"
     const val kotlin = "1.4.21"
+    const val lifecycle = "2.2.0"
     const val mockk = "1.10.3"
     const val serialization = "1.0.1"
     const val sqDelight = "1.4.4"

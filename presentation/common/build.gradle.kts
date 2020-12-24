@@ -17,5 +17,13 @@ kotlin {
                 implementation(project(autoModules.core))
             }
         }
+
+        val androidMain by getting {
+            dependencies {
+                DependencyAndroid.apply {
+                    implementation(lifecycleViewModel)
+                }
+            }
+        }
     }
 }
