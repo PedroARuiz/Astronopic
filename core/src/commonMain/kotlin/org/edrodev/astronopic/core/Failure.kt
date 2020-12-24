@@ -1,5 +1,6 @@
 package org.edrodev.astronopic.core
 
-class Failure {
-
+sealed class Failure {
+    object NotFound : Failure()
+    object Unknown : Failure()
 }

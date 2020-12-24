@@ -37,5 +37,5 @@ fun <F, S>Result<F, S>.failureOrThrow(): F = if (this is Result.Failure<F>){
 fun <S>runCatchingFailure(block: () -> S) : Result<Failure, S> = try {
     block().asSuccess()
 } catch (e: Exception) {
-    Failure().asFailure()
+    Failure.Unknown.asFailure()
 }
