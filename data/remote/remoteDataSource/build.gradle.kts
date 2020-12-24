@@ -4,7 +4,6 @@ plugins {
 }
 
 kotlin {
-    jvm()
     ios {
         binaries {
             framework {

@@ -1,5 +1,5 @@
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
     kotlin("plugin.serialization") version "1.4.0"
 }
 
@@ -25,7 +25,7 @@ kotlin {
             }
         }
 
-        val jvmMain by getting {
+        val androidMain by getting {
             dependencies {
                 DependencyJVM.apply {
                     implementation(ktorClient)
