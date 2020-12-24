@@ -1,5 +1,5 @@
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
 }
 
 kotlin {
