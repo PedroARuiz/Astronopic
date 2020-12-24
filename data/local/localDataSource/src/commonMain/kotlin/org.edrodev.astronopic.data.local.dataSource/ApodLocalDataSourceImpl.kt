@@ -13,9 +13,10 @@ class ApodLocalDataSourceImpl(
 ) : ApodLocalDataSource {
 
     override suspend fun insertApod(apodEntity: ApodEntity): Result<Failure, Unit> = runCatchingFailure {
-        //apodTableQueries.insert(apodEntity)
+        apodTableQueries.insert(apodEntity)
     }
 
-    override suspend fun getApod(date: LocalDate) : Result<Failure, ApodEntity> =
-        apodTableQueries.selectByDate(date.toString()).executeAsOne().asSuccess()
+    override suspend fun getApod(date: LocalDate) : Result<Failure, ApodEntity> = runCatchingFailure {
+        apodTableQueries.selectByDate(date.toString()).executeAsOne()
+    }
 }

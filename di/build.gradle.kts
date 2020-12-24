@@ -30,5 +30,13 @@ kotlin {
                 }
             }
         }
+        val androidMain by getting {
+            dependencies {
+                implementation(Dependency.koinCore)
+                implementation(DependencyAndroid.koinViewModel)
+            }
+        }
+
+
     }
 }

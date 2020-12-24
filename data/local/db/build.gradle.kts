@@ -1,5 +1,5 @@
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
     id("com.squareup.sqldelight")
 }
 
@@ -22,9 +22,9 @@ kotlin {
             }
         }
 
-        val jvmMain by getting {
+        val androidMain by getting {
             dependencies {
-                DependencyJVM.apply {
+                DependencyAndroid.apply {
                     implementation(sqDelightDriver)
                 }
             }

@@ -27,6 +27,13 @@ object DependencyTestJVM {
     const val mockk = "io.mockk:mockk:${Version.mockk}"
 }
 
+object DependencyAndroid {
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutines}"
+    const val koin = "org.koin:koin-android:${Version.koin}"
+    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Version.koin}"
+    const val sqDelightDriver = "com.squareup.sqldelight:android-driver:${Version.sqDelight}"
+}
+
 object DependencyIOS {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Version.coroutines}"
     const val ktorClient = "io.ktor:ktor-client-ios:${Version.ktor}"

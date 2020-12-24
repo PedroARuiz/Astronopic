@@ -7,9 +7,9 @@ CREATE TABLE apodEntity (
     copyright TEXT
 );
 
--- insert:
--- INSERT INTO apodEntity(date, explanation, url, hdurl, title, copyright)
--- VALUES ?;
+insert:
+INSERT INTO apodEntity(date, explanation, url, hdurl, title, copyright)
+VALUES ?;
 
 selectByDate:
 SELECT *

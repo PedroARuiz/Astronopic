@@ -3,7 +3,7 @@ package org.edrodev.astronopic.di
 import org.edrodev.astronopic.data.local.dataSource.ApodLocalDataSource
 import org.edrodev.astronopic.data.local.dataSource.ApodLocalDataSourceImpl
 import org.edrodev.astronopic.data.local.db.AstronopicDataBase
-import org.edrodev.astronopic.data.local.db.driver
+import org.edrodev.astronopic.data.local.db.DriverFactory
 import org.edrodev.astronopic.data.remote.dataSource.ApodRemoteDataSource
 import org.edrodev.astronopic.data.remote.dataSource.ApodRemoteDataSourceImpl
 import org.edrodev.astronopic.data.remote.service.ApodService
@@ -31,11 +31,13 @@ val dataModule = module {
     }
 
     single {
-        driver
+        get<DriverFactory>().createDriver()
     }
 
     single {
-        AstronopicDataBase(get())
+        AstronopicDataBase(
+            driver = get()
+        )
     }
 
     single {
