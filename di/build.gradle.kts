@@ -1,5 +1,5 @@
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
 }
 repositories {
     maven(url = "https://dl.bintray.com/ekito/koin")

@@ -1,0 +1,17 @@
+CREATE TABLE apodEntity (
+    date TEXT NOT NULL PRIMARY KEY,
+    explanation TEXT NOT NULL,
+    url TEXT NOT NULL,
+    hdurl TEXT,
+    title TEXT NOT NULL,
+    copyright TEXT
+);
+
+-- insert:
+-- INSERT INTO apodEntity(date, explanation, url, hdurl, title, copyright)
+-- VALUES ?;
+
+selectByDate:
+SELECT *
+FROM apodEntity
+WHERE date LIKE ?;

@@ -10,11 +10,29 @@ repositories {
     google()
     jcenter()
     mavenCentral()
-    //maven(url = "https://kotlin.bintray.com/kotlinx/")
+    maven(url = "https://kotlin.bintray.com/kotlinx/")
 }
 
 group = "org.edrodev.astronopic"
 version = "1.0-SNAPSHOT"
+
+android {
+    compileSdkVersion(30)
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    defaultConfig {
+        minSdkVersion(24)
+        targetSdkVersion(30)
+    }
+
+    configurations {
+        create("androidTestApi")
+        create("androidTestDebugApi")
+        create("androidTestReleaseApi")
+        create("testApi")
+        create("testDebugApi")
+        create("testReleaseApi")
+    }
+}
 
 kotlin {
     android()
@@ -22,7 +40,7 @@ kotlin {
 
     sourceSets {
 
-        /*getByName("commonMain") {
+        getByName("commonMain") {
             dependencies {
                 Dependency.apply {
                     implementation(coroutinesCore)
@@ -47,7 +65,7 @@ kotlin {
                     implementation(coroutinesCore)
                 }
             }
-        }*/
+        }
 
         /*getByName("iosMain") {
             dependencies {
@@ -57,7 +75,7 @@ kotlin {
             }
         }*/
 
-        /*getByName("androidTest") {
+        getByName("androidTest") {
             dependencies {
                 DependencyTestJVM.apply {
                     implementation(coroutinesTest)
@@ -68,16 +86,7 @@ kotlin {
                     //implementation("io.kotest:kotest-property:${Version.kotest}") // for kotest property test
                 }
             }
-        }*/
-    }
-}
-
-android {
-    compileSdkVersion(30)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(30)
+        }
     }
 }
 
