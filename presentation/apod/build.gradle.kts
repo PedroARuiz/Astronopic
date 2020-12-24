@@ -1,5 +1,5 @@
 plugins {
-    MultiplatformModule
+    MultiplatformMobileModule
 }
 
 kotlin {
@@ -18,14 +18,7 @@ kotlin {
                 api(project(autoModules.domain.model))
                 api(project(autoModules.presentation.common))
                 implementation(project(autoModules.domain.useCase))
-                //implementation(Dependency.coroutinesCore)
             }
         }
-
-        /*val jvmMain by getting {
-            dependencies {
-                api(Dependency.coroutinesCore)
-            }
-        }*/
     }
 }
