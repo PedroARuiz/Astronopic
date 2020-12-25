@@ -3,7 +3,6 @@ package org.edrodev.astronopic.data.local.dataSource
 import kotlinx.datetime.LocalDate
 import org.edrodev.astronopic.core.Failure
 import org.edrodev.astronopic.core.Result
-import org.edrodev.astronopic.core.asSuccess
 import org.edrodev.astronopic.core.runCatchingFailure
 import orgedrodevastronopicdatalocaldb.ApodEntity
 import orgedrodevastronopicdatalocaldb.ApodTableQueries

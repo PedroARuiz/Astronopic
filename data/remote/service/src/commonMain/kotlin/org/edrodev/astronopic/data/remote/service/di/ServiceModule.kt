@@ -2,6 +2,7 @@ package org.edrodev.astronopic.data.remote.service.di
 
 import org.edrodev.astronopic.data.remote.service.ApodService
 import org.edrodev.astronopic.data.remote.service.ApodServiceImpl
+import org.edrodev.astronopic.data.remote.service.client.ServiceConstants
 import org.edrodev.astronopic.data.remote.service.client.createHttpClient
 import org.edrodev.astronopic.data.remote.service.client.createSerializer
 import org.edrodev.astronopic.data.remote.service.client.engine
@@ -25,11 +26,10 @@ val serviceModule = module {
     }
 
     single {
-        val apiKey = "btLsqqfnKwLMbn3qIZjg1JN51AIGgzDxPk4CPKgS"
         createHttpClient(
             engine = get(),
             serializer = get(),
-            apiKey = apiKey
+            apiKey = ServiceConstants.apiKey
         )
     }
 

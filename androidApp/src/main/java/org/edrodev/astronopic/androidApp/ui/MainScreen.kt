@@ -34,7 +34,6 @@ import org.edrodev.astronopic.domain.model.Apod
 import org.edrodev.astronopic.presentation.core.Resource
 import org.edrodev.astronopic.presentation.core.asSuccess
 import org.edrodev.astronopic.presentation.core.fold
-import org.edrodev.astronopic.presentation.core.successOrNull
 
 @Composable
 fun MainScreen(
