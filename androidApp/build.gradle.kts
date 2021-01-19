@@ -62,8 +62,8 @@ dependencies {
     implementation("org.koin:koin-androidx-viewmodel:${Version.koin}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("io.coil-kt:coil:1.1.0")
-    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.4.0")
+    implementation("io.coil-kt:coil:1.1.1")
+    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.4.2")
     implementation(DependencyAndroid.coroutinesCore)
     implementation(Dependency.dateTime)
 }

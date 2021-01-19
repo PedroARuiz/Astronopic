@@ -17,4 +17,3 @@ buildscript {
 repositories {
     mavenCentral()
 }
-
