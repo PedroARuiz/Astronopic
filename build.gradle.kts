@@ -1,5 +1,5 @@
 plugins {
-    id("com.github.ben-manes.versions") version "0.36.0"
+    id("com.github.ben-manes.versions") version "0.38.0"
 }
 buildscript {
     repositories {
@@ -10,10 +10,13 @@ buildscript {
     }
     dependencies {
         classpath("com.squareup.sqldelight:gradle-plugin:${Version.sqDelight}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21")
     }
 }
 
 repositories {
     mavenCentral()
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
 }

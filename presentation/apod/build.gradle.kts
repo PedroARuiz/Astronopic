@@ -12,7 +12,7 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 api(project(autoModules.core))
                 api(project(autoModules.domain.model))

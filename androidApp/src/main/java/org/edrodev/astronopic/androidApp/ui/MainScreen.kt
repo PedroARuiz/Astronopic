@@ -80,12 +80,12 @@ fun MainScreen(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Button(onClick = onPreviousClick) {
-                        Image(imageVector = Icons.Filled.ArrowBack)
+                        Image(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                     }
 
                     if(resourceDate.value < today()) {
                         Button(onClick = onNextClick) {
-                            Image(imageVector = Icons.Filled.ArrowForward)
+                            Image(imageVector = Icons.Filled.ArrowForward, contentDescription = null)
                         }
                     }
                 }
