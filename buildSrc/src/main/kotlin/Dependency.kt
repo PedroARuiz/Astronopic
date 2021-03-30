@@ -1,7 +1,7 @@
 object Dependency {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutines}"
     const val dateTime = "org.jetbrains.kotlinx:kotlinx-datetime:${Version.dateTime}"
-    const val koinCore = "org.koin:koin-core:${Version.koin}"
+    const val koinCore = "io.insert-koin:koin-core:${Version.koin}"
     const val ktorClient = "io.ktor:ktor-client-core:${Version.ktor}"
     const val ktorClientJson = "io.ktor:ktor-client-json:${Version.ktor}"
     const val ktorClientSerialization = "io.ktor:ktor-client-serialization:${Version.ktor}"
@@ -29,8 +29,8 @@ object DependencyTestJVM {
 
 object DependencyAndroid {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutines}"
-    const val koin = "org.koin:koin-android:${Version.koin}"
-    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Version.koin}"
+    const val koin = "io.insert-koin:koin-android:${Version.koin}"
+    const val koinCompose = "io.insert-koin:koin-androidx-compose:3.0.1-beta-1"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
     const val sqDelightDriver = "com.squareup.sqldelight:android-driver:${Version.sqDelight}"
 }

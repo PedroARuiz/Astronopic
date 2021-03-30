@@ -1,8 +1,8 @@
 package org.edrodev.astronopic.androidApp
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.platform.setContent
 import org.edrodev.astronopic.androidApp.ui.ApodTheme
 import org.edrodev.astronopic.androidApp.ui.MainScreen
 import org.edrodev.astronopic.presentation.apod.ApodViewModel

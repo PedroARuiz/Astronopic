@@ -3,12 +3,12 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+
 }
 
 repositories {
     gradlePluginPortal()
     google()
-    jcenter()
     mavenCentral()
     maven(url = "https://kotlin.bintray.com/kotlinx/")
     maven(url = "https://dl.bintray.com/ekito/koin")
@@ -33,15 +33,24 @@ android {
         create("testDebugApi")
         create("testReleaseApi")
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 kotlin {
-    android()
+    android().compilations.all {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
+        }
+    }
     ios()
 
     sourceSets {
 
-        getByName("commonMain") {
+        commonMain {
             dependencies {
                 Dependency.apply {
                     implementation(coroutinesCore)
@@ -50,7 +59,8 @@ kotlin {
                 }
             }
         }
-        getByName("commonTest") {
+
+        commonTest {
             dependencies {
                 DependencyTest.apply {
                     implementation(kotestAssertions)
@@ -65,7 +75,7 @@ kotlin {
             dependencies {
                 DependencyAndroid.apply {
                     implementation(coroutinesCore)
-                    implementation(koinViewModel)
+                    implementation(koin)
                 }
             }
         }

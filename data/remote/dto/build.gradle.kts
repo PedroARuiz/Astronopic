@@ -12,7 +12,7 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 Dependency.apply {
                     implementation(serialization)

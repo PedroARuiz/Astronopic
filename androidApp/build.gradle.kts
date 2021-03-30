@@ -32,7 +32,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
         useIR = true
     }
 
@@ -42,7 +42,6 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = Version.compose
-        kotlinCompilerVersion = "1.4.21"
     }
 }
 
@@ -53,17 +52,17 @@ dependencies {
         implementation(project(presentation.common))
         implementation(project(presentation.apod))
     }
-    implementation("com.google.android.material:material:1.2.1")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation("com.google.android.material:material:1.4.0-alpha01")
+    implementation("androidx.appcompat:appcompat:1.3.0-rc01")
     implementation("androidx.compose.ui:ui:${Version.compose}")
     implementation("androidx.compose.material:material:${Version.compose}")
     implementation("androidx.compose.ui:ui-tooling:${Version.compose}")
-    implementation("org.koin:koin-androidx-viewmodel:${Version.koin}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("androidx.activity:activity-compose:1.3.0-alpha05")
+    implementation(DependencyAndroid.koinCompose)
+    implementation(DependencyAndroid.koin)
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("io.coil-kt:coil:1.1.1")
-    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.4.2")
+    implementation("dev.chrisbanes.accompanist:accompanist-coil:0.6.2")
     implementation(DependencyAndroid.coroutinesCore)
     implementation(Dependency.dateTime)
 }

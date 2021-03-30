@@ -12,7 +12,7 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation(project(autoModules.core))
                 Dependency.apply {

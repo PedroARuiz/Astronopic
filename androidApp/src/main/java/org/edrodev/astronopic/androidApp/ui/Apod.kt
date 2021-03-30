@@ -1,9 +1,11 @@
 package org.edrodev.astronopic.androidApp.ui
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.ScrollableColumn
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,20 +18,24 @@ import org.edrodev.astronopic.domain.model.Apod
 
 @Composable
 fun Apod(apod: Apod) {
-    ScrollableColumn(
+    Column(
         modifier = Modifier
+            .verticalScroll(rememberScrollState())
             .fillMaxWidth()
             .animateContentSize()
     ) {
         CoilImage(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .animateContentSize(),
             data = apod.url,
             contentScale = ContentScale.FillWidth,
-            loading = { Loading() }
+            contentDescription = null,
+            loading = { Loading() },
         )
         Text(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(16.dp)
                 .animateContentSize(),
             text = apod.explanation
         )
